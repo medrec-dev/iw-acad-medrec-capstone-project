@@ -4,3 +4,9 @@ from django.shortcuts import render, HttpResponse
 
 def home(request):
     return HttpResponse("The content is being displayed from [mainapp->view.py]")
+
+def test(request):
+    return HttpResponse("This test is displayed from [mainapp->view.py]")
+
+def app(request):
+    return HttpResponse("This is app from [mainapp->view.py]")
