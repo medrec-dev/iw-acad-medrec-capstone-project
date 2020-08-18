@@ -56,13 +56,7 @@ ROOT_URLCONF = 'medrec.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-<<<<<<< HEAD
-        'DIRS': [os.path.join(BASE_DIR,"templates")],
-||||||| b8006c0
-        'DIRS': [],
-=======
         'DIRS': [os.path.join(BASE_DIR, "templates")],
->>>>>>> 83fc352db06cec65ae3e01869e3144e5c99921af
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
