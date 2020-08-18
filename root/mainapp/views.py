@@ -2,5 +2,9 @@ from django.shortcuts import render, HttpResponse
 
 # Create your views here.
 
-def home(request):
-    return HttpResponse("The content is being displayed from [mainapp->view.py]")
+def index(request):
+    return render(request,'index.html')
+
+def create(request):
+    return render(request,'create.html')
+
