@@ -1,14 +1,14 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout, login
-
+#from mainapp.views import About, Index, Login
 
 def About(request):
     return render(request,'about.html')
 
 def Index(request):
-    if not request.user.is_staff:
-        return redirect('login')
+    #if not request.user.is_staff:
+        #return redirect('login')
     return render(request,'index.html')
 
 def Login(request):
