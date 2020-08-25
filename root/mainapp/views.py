@@ -7,24 +7,24 @@ def About(request):
     return render(request,'about.html')
 
 def Index(request):
-    #if not request.user.is_staff:
-        #return redirect('login')
+    if not request.user.is_staff:
+        return redirect('login')
     return render(request,'index.html')
 
 def Login(request):
     error = ""
     if request.method=='POST':
-        u = request.POST['uname']
+        u = request.POST['uname'] # The name mentioned in the text box should be mentioned here
         p = request.POST['pwd']
         user = authenticate(username = u, password = p)
         try:
             if user.is_staff:
                 login(request, user)
-                error = "No ERROR"
+                error = "no"
             else:
-                error = "ERROR"
-        except:
-                error = "ERROR"
+                error = "yes"
+        except: 
+                error = "yes"
     d = {'error':error}
     return render(request,'login.html',d)
 
