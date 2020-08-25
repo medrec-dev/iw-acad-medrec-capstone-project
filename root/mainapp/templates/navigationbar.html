@@ -10,17 +10,50 @@
 <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container">
-        <a class="navbar-brand" href="#">MEDREC</a>
+        <a class="navbar-brand" href="{% url 'home' %}">MEDREC</a>
         <button class=="navbar-toggler" type="button" data-toggle="collapse" data-target="#myMenu">
     <span class="navbar-toggler-icon">
     </button>
     <div class="collapse navbar-collapse" id="myMenu">
         <ul class="navbar-nav text-center ml-auto">
-            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            <!-- BEFORE Login -->
+            {% if not request.user.is_staff %} 
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            {%endif%}
+
+            <!-- AFTER Login -->
             {% if request.user.is_staff%}
-                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+
+            <!-- Home Button-->
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+
+            <!-- Doctor Dropdown-->
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">DOCTOR</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Add Doctor</a>
+                    <a class="dropdown-item" href="{#">View Doctor</a>
+                </div>
+            </li>
+            <!-- Patient Dropdown -->
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">PATIENT</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Add Patient</a>
+                    <a class="dropdown-item" href="{#">View Patient</a>
+                </div>
+            </li>
+
+            <!-- Appointment Dropdown -->
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">APPOINTMENT</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Opt 1</a>
+                    <a class="dropdown-item" href="{#">Opt 2</a>
+                </div>
+            </li>
+
+            <!-- Logout Option -->  
+            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
             {%endif%}
         </ul>
     </div>

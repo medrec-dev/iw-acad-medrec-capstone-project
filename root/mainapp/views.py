@@ -11,6 +11,9 @@ def Index(request):
         return redirect('login')
     return render(request,'index.html')
 
+def Contact(request):
+    return render(request,'contact.html')
+
 def Login(request):
     error = ""
     if request.method=='POST':
