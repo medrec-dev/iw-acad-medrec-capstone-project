@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout, login
+from .models import *
 #from mainapp.views import About, Index, Login
 
 def About(request):
@@ -42,3 +43,10 @@ def create(request):
 def listPatients(request):
     return render (request,'mainapp/patient-list.html')
 
+def View_Doctor(request):
+    if not request.user.is_staff:
+        return redirect('login')
+    #logout(request)
+    doc = Doctor.objects.all()
+    d = {'doc':doc}
+    return render(request, 'view_doctor.html',d)
