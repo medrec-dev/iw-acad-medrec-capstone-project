@@ -50,3 +50,11 @@ def View_Doctor(request):
     doc = Doctor.objects.all()
     d = {'doc':doc}
     return render(request, 'view_doctor.html',d)
+
+def View_Patient(request):
+    if not request.user.is_staff:
+        return redirect('login')
+    #logout(request)
+    pat = Patient.objects.all()
+    p = {'pat':pat}
+    return render(request, 'view_patient.html',p)
