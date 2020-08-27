@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from mainapp.views import Index, About, Contact, Login, Logout_admin, View_Doctor, View_Patient, Add_Doctor, Delete_Doctor
+from mainapp.views import Index, About, Contact, Login, Logout_admin, View_Doctor, View_Patient, Add_Doctor, Delete_Doctor, Delete_Patient, Add_Patient
 #from root.mainapp import views
 #from _ast import Index
 urlpatterns = [
@@ -12,6 +12,9 @@ urlpatterns = [
     path('logout/', Logout_admin, name='logout'),
     path('view_doctor/', View_Doctor, name='view_doctor'),
     path('view_patient/', View_Patient, name='view_patient'),
-    path('add_doctor/', Add_Doctor, name='add_doctor')
-    path('delete_doctor(?P<int:pid>)', Delete_Doctor, name='delete_doctor')
+    path('add_doctor/', Add_Doctor, name='add_doctor'),
+    path('add_patient/', Add_Patient, name='add_patient'),
+    path('delete_doctor(?P<int:did>)', Delete_Doctor, name='delete_doctor'),
+    #path('delete_patient(?P<int:pid>)', Delete_Patient, name='delete_patient')
+
 ]

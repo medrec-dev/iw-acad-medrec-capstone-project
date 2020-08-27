@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+-->
     <title>MEDREC :: MEDical RECord Management System</title>
         <!-- Data table CDN-->
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -54,7 +57,7 @@
             <tr>
                 <td>{{i.id}}</td>
                 <td>{{i.doctor_name}}</td>
-                <td> <a href="{% url 'delete_doctor' i.id %}" inclick="return confirm('Are yousure')" class="btn btn-danger">Delete</a></td>
+                <td> <a href="{% url 'delete_doctor' i.id %}" onclick="return confirm('Are yousure')" class="btn btn-danger">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>

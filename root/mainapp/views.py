@@ -60,6 +60,37 @@ def View_Patient(request):
     return render(request, 'view_patient.html',p)
 
 
+
+
+def Delete_Doctor(request,did):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    doctor = Doctor.objects.get(id=did)
+    doctor.delete()
+    return redirect('view_doctor')
+
+def Delete_Patient(request,pid):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    patient = Patient.objects.get(id=pid)
+    patient.delete()
+    return redirect('view_patient')
+
+def Add_Patient(request):
+    error = ""
+    if not request.user.is_authenticated:
+        return redirect('login')
+    if request.method=='POST':
+        fn = request.POST['fname'] # The name mentioned in the text box should be mentioned here
+        e = request.POST['email']
+        try:
+            Patient.objects.create( patient_firstName=fn,patient_email=e )
+            error = "no"
+        except: 
+            error = "yes"
+    p = {'error':error}
+    return render(request,'add_patient.html',p)
+
 def Add_Doctor(request):
     error = ""
     if not request.user.is_authenticated:
@@ -74,10 +105,3 @@ def Add_Doctor(request):
                 error = "yes"
     d = {'error':error}
     return render(request,'add_doctor.html',d)
-
-def Delete_Doctor(request,pid):
-    if not request.user.is_authenticated:
-        return redirect('login')
-    doctor = Doctor.objects.get(id=pid)
-    doctor.delete()
-    return redirect('view_doctor')
