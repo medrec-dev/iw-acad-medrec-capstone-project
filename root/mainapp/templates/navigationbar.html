@@ -51,14 +51,14 @@
     <div class="collapse navbar-collapse" id="myMenu">
         <ul class="navbar-nav text-center ml-auto">
             <!-- BEFORE Login -->
-            {% if not request.user.is_staff %} 
+            {% if not request.user.is_authenticated %} 
                 <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
             {%endif%}
 
             <!-- AFTER Login -->
-            {% if request.user.is_staff%}
+            {% if request.user.is_authenticated %}
 
             <!-- Home Button-->
             <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
@@ -66,7 +66,7 @@
             <!-- Doctor Dropdown-->
             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">DOCTOR</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Add Doctor</a>
+                    <a class="dropdown-item" href="{% url 'add_doctor' %}">Add Doctor</a>
                     <a class="dropdown-item" href="{% url 'view_doctor' %}">View Doctor</a>
 
                 </div>
