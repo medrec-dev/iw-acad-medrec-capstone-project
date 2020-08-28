@@ -29,5 +29,5 @@ class Appointment(models.Model):
     appoint_date = models.DateField
     appint_time = models.TimeField
 
-    def __str__(self):
-        return self.doctor.doctor_name + "---" + self.patient.patient_name
+    # def __str__(self):
+    #     return self.doctor.doctor_name + "---" + self.patient.patient_name
