@@ -22,7 +22,7 @@ class Patient(models.Model):
     patient_lastName = models.CharField(max_length=25)
     #patient_name = models.CharField(max_length=100)
 
-    patient_name = patient_firstName + patient_middleName + patient_lastName
+    #patient_name = patient_firstName + patient_middleName + patient_lastName
     
     patient_email = models.EmailField()
     patient_dob = models.DateField()
