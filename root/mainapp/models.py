@@ -22,7 +22,7 @@ class Patient(models.Model):
     patient_lastName = models.CharField(max_length=25)
     #patient_name = models.CharField(max_length=100)
 
-    #patient_name = 'patient_firstName' + 'patient_middleName' + 'patient_lastName'
+    patient_name = patient_firstName + patient_middleName + patient_lastName
     
     patient_email = models.EmailField()
     patient_dob = models.DateField()
@@ -33,11 +33,11 @@ class Patient(models.Model):
     def __str__(self):
         return self.patient_email
 
-#class Appointment(models.Model):
-    #doctor = models.ForeignKey(Doctor,on_delete=models.CASCADE)
-    #patient = models.ForeignKey(Patient,on_delete=models.CASCADE)
-    #appoint_date = models.DateTimeField(datetime.date.today())
-    #appoint_time = models.TimeField()
-    #def __str__(self):
-        #return self.doctor.doctor_name + "---" + self.patient.patient_name
-        #return self.appoint_date #appoint_time
+class Appointment(models.Model):
+    # doctor = models.ForeignKey(AppointmentInfo,on_delete=models.CASCADE)
+    # patient = models.ForeignKey(AppointmentInfo,on_delete=models.CASCADE)
+    appoint_date = models.DateField
+    appint_time = models.TimeField
+
+    # def __str__(self):
+    #     return self.doctor.doctor_name + "---" + self.patient.patient_name
