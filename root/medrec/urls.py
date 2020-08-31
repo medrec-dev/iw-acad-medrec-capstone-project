@@ -15,6 +15,6 @@ urlpatterns = [
     path('add_doctor/', Add_Doctor, name='add_doctor'),
     path('add_patient/', Add_Patient, name='add_patient'),
     path('delete_doctor(?P<int:did>)', Delete_Doctor, name='delete_doctor'),
-    #path('delete_patient(?P<int:pid>)', Delete_Patient, name='delete_patient')
+    path('delete_patient(?P<int:pid>)', Delete_Patient, name='delete_patient')
 
 ]

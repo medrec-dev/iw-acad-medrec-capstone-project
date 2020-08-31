@@ -34,13 +34,14 @@
         <tbody>
             {% for i in pat %}
             <tr>
-                <td>{{i.id}}</td>
+                <td>{{i.patient_id}}</td>
                 <td>{{i.patient_firstName}}</td>
-               <td>{{i.patient_middleName}}</td>
+                <td>{{i.patient_middleName}}</td>
                 <td>{{i.patient_lastName}}</td>
                 <td>{{i.patient_email}}</td>
- 
-                
+                <td>{{i.patient_dob}}</td>
+                <td>{{i.patient_gender}}</td>
+                <td> <a href="{% url 'delete_patient' i.patient_id %}" onclick="return confirm('Are yousure')" class="btn btn-danger">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
