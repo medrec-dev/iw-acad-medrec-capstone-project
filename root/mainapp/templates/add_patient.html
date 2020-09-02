@@ -16,10 +16,10 @@
         <h2 class="text-center">Add Patients</h2>
         <form method="POST" action="">
             {% csrf_token %}
-        <label> Patient First Name </label>
-        <input type="text" class="form-control" name="fname" required>
-        <label> Email</label>
-        <input type="text" class="form-control" name="email" required>  <!--
+            <label> Patient First Name </label>
+            <input type="text" class="form-control" name="fname" required>
+            <label> Email</label>
+            <input type="text" class="form-control" name="email" required>  <!--
                    <label> Middle Name</label>
         <input type="text" class="form-control" name="mname" required>
         <label> Patient Last Name </label>
@@ -29,14 +29,14 @@
         <label> Gender</label>
         <input type="text" class="form-control" name="gender" required> -->
         <br>
-        <input type="submit" value="Submit" class="form-control btn btn-primary">
-    </form>
+            <input type="submit" value="Submit" class="form-control btn btn-primary">
+        </form>
     </div>
     {% ifequal error "no"%}
-    <script>
-        alert('Patient ADDED');
-        window.location=('{% url 'view_patient' %}');
-    </script>
+<script>
+    alert('Patient ADDED');
+    window.location=('{% url 'view_patient' %}');
+</script>
 {% endifequal %}
 
 {% ifequal error "yes"%}

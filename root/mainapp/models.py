@@ -6,7 +6,10 @@ from django.utils import timezone
 #default= 2020-09-11
 class Doctor(models.Model):
     doctor_name = models.CharField(max_length=25)
+    doctor_regnum = models.IntegerField( blank=True)
+    doctor_email = models.EmailField()
     doctor_contact = models.IntegerField()
+
     def __str__(self):
         return self.doctor_name
 

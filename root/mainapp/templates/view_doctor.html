@@ -44,12 +44,16 @@
     <h2 class="text-center">View doctors</h2>
     <br>
     <br>
-    <table class="table table-hover" id="example">
+    <table class="table table-hover" id="example" border="1">
         <thead>
             <tr>
                 <th>Doctor ID</th>
                 <th>Doctor Name</th>
+                <th>NMC Registration Num</th>
+                <th>Email Address</th>
+                <th>Contact Num</th>
                 <th> DELETE</th>
+
             </tr>
         </thead>
         <tbody>
@@ -57,7 +61,10 @@
             <tr>
                 <td>{{i.id}}</td>
                 <td>{{i.doctor_name}}</td>
+                <td>{{i.doctor_regnum}}</td>
+
                 <td> <a href="{% url 'delete_doctor' i.id %}" onclick="return confirm('Are yousure')" class="btn btn-danger">Delete</a></td>
+
             </tr>
             {% endfor %}
         </tbody>
