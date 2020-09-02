@@ -72,7 +72,7 @@ def Delete_Doctor(request,did):
 def Delete_Patient(request,pid):
     if not request.user.is_authenticated:
         return redirect('login')
-    patient = Patient.objects.get(id=pid)
+    patient = Patient.objects.get(patient_id=pid)
     patient.delete()
     return redirect('view_patient')
 
