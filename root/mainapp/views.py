@@ -59,9 +59,6 @@ def View_Patient(request):
     p = {'pat':pat}
     return render(request, 'view_patient.html',p)
 
-
-
-
 def Delete_Doctor(request,did):
     if not request.user.is_authenticated:
         return redirect('login')
@@ -105,3 +102,8 @@ def Add_Doctor(request):
                 error = "yes"
     d = {'error':error}
     return render(request,'add_doctor.html',d)
+
+def Profile(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    return render(request,'profile.html')

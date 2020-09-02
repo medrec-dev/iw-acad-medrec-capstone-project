@@ -55,6 +55,14 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                <!-- Accounts -->
+                
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">ACCOUNTS</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="accounts/register">Register</a>
+                        <a class="dropdown-item" href="accounts/signin">Sign In</a>
+                    </div>
+                </li>
             {%endif%}
 
             <!-- AFTER Login -->
@@ -62,13 +70,7 @@
             <!-- Home Button-->
             <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
 
-            <!-- Accounts -->
-            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">ACCOUNTS</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="accounts/register">Register</a>
-                    <a class="dropdown-item" href="accounts/signin">Sign In</a>
-                </div>
-            </li>
+
 
             <!-- Doctor Dropdown-->
             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">DOCTOR</a>
@@ -93,9 +95,9 @@
                     <a class="dropdown-item" href="{#">Opt 2</a>
                 </div>
             </li>
-            
+
             <!-- Username Display -->
-            <li class="nav-item"><a class="nav-link" href="#">Hello, {{user.username}}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Hello, {{user.username}}</a></li>
 
             <!-- Logout Option -->  
             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
