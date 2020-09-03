@@ -61,7 +61,7 @@
             {%endif%}
 
             <!-- AFTER Login -->
-            {% if request.user.is_superuser %}
+            {% if not request.user.is_superuser %}
             <!-- Home Button-->
             <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
             <!-- Doctor Dropdown-->

@@ -53,6 +53,7 @@
                 <th>Email Address</th>
                 <th>Contact Num</th>
                 <th> DELETE</th>
+                <th>EDIT</th>
 
             </tr>
         </thead>
@@ -65,7 +66,9 @@
                 <td>{{i.doctor_email}}</td>
                 <td>{{i.doctor_contact}}</td>
                 <td> <a href="{% url 'delete_doctor' i.id %}" onclick="return confirm('Are you sure to DELETE?')" class="btn btn-danger">Delete</a></td>
+                <td> <a href="{% url 'edit_doctor' i.id %}" >Edit</a></td>
             </tr>
+
             {% endfor %}
         </tbody>
     </table>

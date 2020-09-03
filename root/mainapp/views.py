@@ -55,7 +55,7 @@ def listPatients(request):
 
 
 def View_Doctor(request):
-    if not request.user.is_authenticated:
+    if not request.user.is_authenticated    :
         return redirect('login')
     #logout(request)
     doc = Doctor.objects.all()
@@ -92,24 +92,25 @@ def Add_Patient(request):
     error = ""
     if not request.user.is_authenticated:
         return redirect('login')
-    if request.method == 'POST':
-        fn = request.POST['fname']  # The name mentioned in the text box should be mentioned here
-        e = request.POST['email']
-        dob = request.POST['dob']
-        gen = request.POST['gender']
-        try:
-            Patient.objects.create(
-                patient_firstName=fn,
-                patient_email=e,
-                patient_dob=dob,
-                patient_gender=gen,
-            )
-            error = "no"
-        except Exception as e:
-            print(e)
-            error = "yes"
-    p = {'error': error}
-    return render(request, 'add_patient.html', p)
+    if request.user.is_superuser:
+        if request.method == 'POST':
+            fn = request.POST['fname']  # The name mentioned in the text box should be mentioned here
+            e = request.POST['email']
+            dob = request.POST['dob']
+            gen = request.POST['gender']
+            try:
+                Patient.objects.create(
+                    patient_firstName=fn,
+                    patient_email=e,
+                    patient_dob=dob,
+                    patient_gender=gen,
+                )
+                error = "no"
+            except Exception as e:
+                print(e)
+                error = "yes"
+        p = {'error': error}
+        return render(request, 'add_patient.html', p)
 
 
 def Add_Doctor(request):
@@ -137,3 +138,15 @@ def Profile(request):
     if not request.user.is_authenticated:
         return redirect('login')
     return render(request, 'profile.html')
+
+def Edit_Doctor(request, did):  
+    if not request.user.is_authenticated:
+        return redirect('login')
+    doctor = Doctor.objects.get(id=did)
+    return render(request,'edit_doctor.html', {'doctor':doctor})  
+
+def Edit_Patient(request, pid):  
+    if not request.user.is_authenticated:
+        return redirect('login')
+    patient = Patient.objects.get(patient_id=pid)
+    return render(request,'edit_patient.html', {'patient':patient})  
