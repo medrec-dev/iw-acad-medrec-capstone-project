@@ -24,10 +24,15 @@
         <input type="text" class="form-control" name="mname" required>
         <label> Patient Last Name </label>
         <input type="text" class="form-control" name="lname" required>
+         -->
         <label> Patient DOB </label>
-        <input type="text" class="form-control" name="dob" required>
+        <input type="date" class="form-control" name="dob" required>
         <label> Gender</label>
-        <input type="text" class="form-control" name="gender" required> -->
+        <select name="gender" class="form-control" name="gender" required>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="O">Other</option>
+        </select>
         <br>
             <input type="submit" value="Submit" class="form-control btn btn-primary">
         </form>
