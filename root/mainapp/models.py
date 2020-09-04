@@ -26,13 +26,13 @@ class Patient(models.Model):
     #patient_name = models.CharField(max_length=100)
     #patient_name = patient_firstName + patient_middleName + patient_lastName
     patient_email = models.EmailField()
-    patient_dob = models.DateField()
+    patient_dob = models.DateField(blank='true')
     #patient_time = models.TimeField(default=timezone.now)
     #patient_dob = 2020,8,24
     patient_gender = models.CharField(max_length=1, choices=PATIENT_GENDER)
-    #patient_contact = models.IntegerField()
-    #checkup_id = models.IntegerField()
-    #patient_symptoms = models.TextField()
+    patient_contact = models.IntegerField(default=100)
+    checkup_id = models.IntegerField(default=1000)
+    patient_symptoms = models.TextField(default='Symptoms')
 
 
 
