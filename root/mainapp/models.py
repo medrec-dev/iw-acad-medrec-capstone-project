@@ -32,6 +32,8 @@ class Patient(models.Model):
     #patient_time = models.TimeField(default=timezone.now)
     #patient_dob = 2020,8,24
     patient_gender = models.CharField(max_length=1, choices=PATIENT_GENDER)
+    patient_contact = models.IntegerField()
+
 
     def __str__(self):
         return self.patient_email
