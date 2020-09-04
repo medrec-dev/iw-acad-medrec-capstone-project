@@ -6,8 +6,8 @@ from django.utils import timezone
 #default= 2020-09-11
 class Doctor(models.Model):
     doctor_name = models.CharField(max_length=25)
-    doctor_regnum = models.IntegerField( blank=True)
-    doctor_email = models.EmailField()
+    #doctor_regnum = models.IntegerField( blank=True, default='')
+    #doctor_email = models.EmailField(default='')
     doctor_contact = models.IntegerField()
 
     def __str__(self):
@@ -24,15 +24,16 @@ class Patient(models.Model):
     patient_middleName = models.CharField(max_length=25)
     patient_lastName = models.CharField(max_length=25)
     #patient_name = models.CharField(max_length=100)
-
     #patient_name = patient_firstName + patient_middleName + patient_lastName
-    
     patient_email = models.EmailField()
     patient_dob = models.DateField()
     #patient_time = models.TimeField(default=timezone.now)
     #patient_dob = 2020,8,24
     patient_gender = models.CharField(max_length=1, choices=PATIENT_GENDER)
-    patient_contact = models.IntegerField()
+    #patient_contact = models.IntegerField()
+    #checkup_id = models.IntegerField()
+    #patient_symptoms = models.TextField()
+
 
 
     def __str__(self):

@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from mainapp.views import Index, About, Contact, Login, Logout_admin, View_Doctor, View_Patient, Add_Doctor, Delete_Doctor, Delete_Patient, Add_Patient, Profile
+from accounts.views import register, signin
 #from root.mainapp import views
 #from _ast import Index
 urlpatterns = [
@@ -20,5 +21,7 @@ urlpatterns = [
     path('delete_patient(?P<int:pid>)', Delete_Patient, name='delete_patient'),
     path('accounts/', include('accounts.urls')),
     path('profile/', Profile, name='profile'),
+    path('admin_login/accounts/register', register, name='register'),
+    path('admin_login/accounts/signin', signin, name='signin')
 
 ]

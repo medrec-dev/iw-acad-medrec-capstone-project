@@ -94,17 +94,24 @@ def Add_Patient(request):
         return redirect('login')
     if request.method == 'POST':
         fn = request.POST['fname']  # The name mentioned in the text box should be mentioned here
+        mn = request.POST['mname']
+        ln = request.POST['lname']
+
         e = request.POST['email']
         dob = request.POST['dob']
         gen = request.POST['gender']
         c = request.POST['contact']
+        sym = request.POST['symptoms']
         try:
             Patient.objects.create(
                 patient_firstName=fn,
+                patient_middleName = mn,
+                patient_lastName = ln,
                 patient_email=e,
                 patient_dob=dob,
                 patient_gender=gen,
-                patient_contact = c
+                patient_contact = c,
+                patient_symptoms = sym,
             )
             error = "no"
         except Exception as e:
