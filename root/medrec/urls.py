@@ -18,6 +18,7 @@ urlpatterns = [
     path('edit_doctor/', Edit_Doctor, name='edit_doctor'),
     path('edit_patient/', Edit_Patient, name='edit_patient'),
     path('delete_patient(?P<int:pid>)', Delete_Patient, name='delete_patient'),
-    path('admin_login/accounts/', include('accounts.urls')),
+    path('accounts/', include('accounts.urls')),
     path('profile/', Profile, name='profile'),
+
 ]

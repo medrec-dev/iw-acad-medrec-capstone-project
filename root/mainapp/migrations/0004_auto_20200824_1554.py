@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='appointment',
             name='appoint_date',
-            field=models.DateField(default=django.utils.timezone.now),
+            field=models.DateField(default=''),
             preserve_default=False,
         ),
         migrations.AddField(
