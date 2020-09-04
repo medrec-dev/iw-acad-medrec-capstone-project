@@ -92,7 +92,7 @@ def Add_Patient(request):
     error = ""
     if not request.user.is_authenticated:
         return redirect('login')
-    if request.user.is_superuser:
+    #if request.user.is_superuser:
         if request.method == 'POST':
             fn = request.POST['fname']  # The name mentioned in the text box should be mentioned here
             e = request.POST['email']
