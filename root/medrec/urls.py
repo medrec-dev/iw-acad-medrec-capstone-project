@@ -5,7 +5,7 @@ from accounts.views import register, signin
 #from root.mainapp import views
 #from _ast import Index
 urlpatterns = [
-    path('', Index, name='home'),
+    path('', View_Patient, name='home'),
     path('admin/', admin.site.urls),
     path('about/', About, name='about'),
     path('contact/', Contact, name='contact'),
