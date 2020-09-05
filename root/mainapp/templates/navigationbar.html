@@ -45,9 +45,11 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container">
         <a class="navbar-brand" href="{% url 'home' %}">MEDREC</a>
+        <!-- 
         <button class=="navbar-toggler" type="button" data-toggle="collapse" data-target="#myMenu">
     <span class="navbar-toggler-icon">
     </button>
+    -->
     <div class="collapse navbar-collapse" id="myMenu">
         <ul class="navbar-nav text-center ml-auto">
             <!-- BEFORE Login -->
@@ -55,20 +57,23 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-                <!-- Accounts -->
-                <li class="nav-item"><a class="nav-link" href="accounts/register">Patient Registration</a></li>
-                <li class="nav-item"><a class="nav-link" href="accounts/signin">Patient Signin</a></li>
+                <li class="nav-item"><a class="nav-link" href="accounts/register">Register</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="accounts/signin">Sign In</a></li> -->
             {%endif%}
 
             <!-- AFTER Login -->
-            {% if request.user.is_superuser %}
+            {% if request.user.is_authenticated %}
             <!-- Home Button-->
             <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+
+
+
             <!-- Doctor Dropdown-->
             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">DOCTOR</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="{% url 'add_doctor' %}">Add Doctor</a>
                     <a class="dropdown-item" href="{% url 'view_doctor' %}">View Doctor</a>
+
                 </div>
             </li>
             <!-- Patient Dropdown -->
@@ -78,6 +83,7 @@
                     <a class="dropdown-item" href="{% url 'view_patient' %}">View Patient</a>
                 </div>
             </li>
+
             <!-- Appointment Dropdown -->
             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">APPOINTMENT</a>
                 <div class="dropdown-menu">
@@ -85,8 +91,10 @@
                     <a class="dropdown-item" href="{#">Opt 2</a>
                 </div>
             </li>
+
             <!-- Username Display -->
             <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Hello, {{user.username}}</a></li>
+
             <!-- Logout Option -->  
             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
             {%endif%}

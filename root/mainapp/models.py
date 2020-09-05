@@ -6,9 +6,9 @@ from django.utils import timezone
 #default= 2020-09-11
 class Doctor(models.Model):
     doctor_name = models.CharField(max_length=25)
-    doctor_regnum = models.IntegerField( blank=True)
+    doctor_regnum = models.IntegerField( blank=True, default='')
     doctor_email = models.EmailField(default='')
-    doctor_contact = models.CharField(max_length=15)
+    doctor_contact = models.IntegerField()
 
     def __str__(self):
         return self.doctor_name
@@ -26,10 +26,15 @@ class Patient(models.Model):
     #patient_name = models.CharField(max_length=100)
     #patient_name = patient_firstName + patient_middleName + patient_lastName
     patient_email = models.EmailField()
-    patient_dob = models.DateField()
+    patient_dob = models.DateField(blank='true')
     #patient_time = models.TimeField(default=timezone.now)
     #patient_dob = 2020,8,24
     patient_gender = models.CharField(max_length=1, choices=PATIENT_GENDER)
+    patient_contact = models.IntegerField(default=100)
+    checkup_id = models.IntegerField(default=1000)
+    patient_symptoms = models.TextField(default='Symptoms')
+
+
 
     def __str__(self):
         return self.patient_email

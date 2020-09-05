@@ -38,7 +38,7 @@ def register(request):
                 user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name)
                 user.save();
                 print('User created')
-                return redirect('signin ')
+                return redirect('signin')
         else:
             messages.info(request,"Password mismatch")
             return redirect('register')

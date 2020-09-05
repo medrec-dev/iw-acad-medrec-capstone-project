@@ -94,15 +94,24 @@ def Add_Patient(request):
         return redirect('login')
     if request.method == 'POST':
         fn = request.POST['fname']  # The name mentioned in the text box should be mentioned here
+        mn = request.POST['mname']
+        ln = request.POST['lname']
+
         e = request.POST['email']
         dob = request.POST['dob']
         gen = request.POST['gender']
+        c = request.POST['contact']
+        sym = request.POST['symptoms']
         try:
             Patient.objects.create(
                 patient_firstName=fn,
+                patient_middleName = mn,
+                patient_lastName = ln,
                 patient_email=e,
                 patient_dob=dob,
                 patient_gender=gen,
+                patient_contact = c,
+                patient_symptoms = sym,
             )
             error = "no"
         except Exception as e:
@@ -117,14 +126,15 @@ def Add_Doctor(request):
     if not request.user.is_authenticated:
         return redirect('login')
     if request.method == 'POST':
-        n = request.POST[
-            'name']  # The name mentioned in the text box should be mentioned here
+        n = request.POST['name']  # The name mentioned in the text box should be mentioned here
         c = request.POST['contact']
         reg = request.POST['doctor_regnum']
+        e = request.POST['email']
         try:
             Doctor.objects.create(doctor_name=n,
                                   doctor_contact=c,
-                                  doctor_regnum=reg)
+                                  doctor_regnum=reg,
+                                  doctor_email = e)
             error = "no"
         except Exception as e:
             print(e)
