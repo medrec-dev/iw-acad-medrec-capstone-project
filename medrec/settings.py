@@ -25,7 +25,7 @@ SECRET_KEY = 'gm!%qrnt@861(e2w+7u65^xf@c67r(ckz8@rbc_+c*3uj5g2i2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*, medrec-iwa.herokuapp.com']
+ALLOWED_HOSTS = ['*', 'medrec-iwa.herokuapp.com']
 
 
 # Application definition
